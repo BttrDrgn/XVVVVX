@@ -3,13 +3,14 @@ I doubt I will work on this due to how gross it is. Might remake
 the entirity of SoundSystem and Music files. */
 
 #include "BinaryBlob.h"
+#include "filesystem.h"
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
 /* FIXME: Abstract to FileSystemUtils! */
-#include <physfs.h>
+//#include <physfs.h>
 
 binaryBlob::binaryBlob()
 {
@@ -44,7 +45,7 @@ void binaryBlob::AddFileToBinaryBlob(const char* _path)
 
 		fclose(file);
 
-		printf("The complete file size: %li\n", size);
+		//fs::slog("The complete file size: " + size + "\n");
 
 		m_memblocks[numberofHeaders] = memblock;
 		for (int i = 0; _path[i]; i += 1)
@@ -58,7 +59,7 @@ void binaryBlob::AddFileToBinaryBlob(const char* _path)
 	}
 	else
 	{
-		printf("Unable to open file\n");
+		fs::log("Unable to open file\n");
 	}
 }
 
@@ -85,18 +86,9 @@ void binaryBlob::writeBinaryBlob(const char* _name)
 
 bool binaryBlob::unPackBinary(const char* name)
 {
-	PHYSFS_sint64 size;
-
-	PHYSFS_File *handle = PHYSFS_openRead(name);
-	if (handle == NULL)
-	{
-		printf("Unable to open file %s\n", name);
-		return false;
-	}
-
-	size = PHYSFS_fileLength(handle);
-
-	PHYSFS_readBytes(handle, &m_headers, sizeof(resourceheader) * 128);
+	std::ifstream filestream(name, std::ifstream::binary);
+	int size = fs::size(name);
+	//filestream.read(&m_headers, sizeof(resourceheader)*128);
 
 	int offset = 0 + (sizeof(resourceheader) * 128);
 
@@ -104,15 +96,15 @@ bool binaryBlob::unPackBinary(const char* name)
 	{
 		if (m_headers[i].valid)
 		{
-			PHYSFS_seek(handle, offset);
+			filestream.seekg(offset);
 			m_memblocks[i] = (char*) malloc(m_headers[i].size);
-			PHYSFS_readBytes(handle, m_memblocks[i], m_headers[i].size);
+			filestream.read(m_memblocks[i], m_headers[i].size);
 			offset += m_headers[i].size;
 		}
 	}
-	PHYSFS_close(handle);
+	filestream.close();
 
-	printf("The complete reloaded file size: %lli\n", size);
+	//fs::slog("The complete reloaded file size: " + size + "\n");
 
 	for (int i = 0; i < 128; i += 1)
 	{
@@ -121,7 +113,7 @@ bool binaryBlob::unPackBinary(const char* name)
 			break;
 		}
 
-		printf("%s unpacked\n", m_headers[i].name);
+		//fs::slog(m_headers[i].name + "unpacked\n");
 	}
 
 	return true;

@@ -98,6 +98,7 @@ int main()
 	fs::log("\t\t\n");
 
     Graphics graphics;
+	CSound sfx;
     MusicClass music;
     Game game;
     game.infocus = true;

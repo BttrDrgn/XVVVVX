@@ -1,7 +1,7 @@
 #pragma once
 
 /* Laaaazyyyyyyy -flibit */
-// #define VVV_COMPILEMUSIC
+//#define VVV_COMPILEMUSIC
 
 struct resourceheader
 {

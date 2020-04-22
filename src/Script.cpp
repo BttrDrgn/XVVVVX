@@ -7,6 +7,8 @@
 #include "Map.h"
 #include "Utility.h"
 
+extern CSound sfx;
+
 ScriptClass::ScriptClass()
 {
     	//Start SDL
@@ -237,7 +239,7 @@ void ScriptClass::run( KeyPoll& key, Graphics& dwgfx, Game& game, MapClass& map,
 			}
 			if (words[0] == "playef")
 			{
-				music.playef(vvvvvv::Utility::toInt(words[1]), vvvvvv::Utility::toInt(words[2]));
+				sfx.Create(vvvvvv::Utility::toInt(words[1]), 1); //Original line - ,vvvvvv::Utility::toInt(words[2]));
 			}
 			if (words[0] == "play")
 			{
@@ -1185,39 +1187,39 @@ void ScriptClass::run( KeyPoll& key, Graphics& dwgfx, Game& game, MapClass& map,
 			{
 				if (words[1] == "player")
 				{
-					music.playef(11, 10);
+					sfx.Create(11, 1);
 				}
 				else if (words[1] == "cyan")
 				{
-					music.playef(11, 10);
+					sfx.Create(11, 1);
 				}
 				else if (words[1] == "red")
 				{
-					music.playef(16, 10);
+					sfx.Create(16, 1);
 				}
 				else if (words[1] == "green")
 				{
-					music.playef(12, 10);
+					sfx.Create(12, 1);
 				}
 				else if (words[1] == "yellow")
 				{
-					music.playef(14, 10);
+					sfx.Create(14, 1);
 				}
 				else if (words[1] == "blue")
 				{
-					music.playef(13, 10);
+					sfx.Create(13, 1);
 				}
 				else if (words[1] == "purple")
 				{
-					music.playef(15, 10);
+					sfx.Create(15, 1);
 				}
 				else if (words[1] == "cry")
 				{
-					music.playef(2, 10);
+					sfx.Create(2, 1);
 				}
 				else if (words[1] == "terminal")
 				{
-					music.playef(20, 10);
+					sfx.Create(20, 1);
 				}
 			}
 			else if (words[0] == "blackout")
@@ -1865,7 +1867,7 @@ void ScriptClass::run( KeyPoll& key, Graphics& dwgfx, Game& game, MapClass& map,
 			{
 				//music.silencedasmusik();
 				music.haltdasmusik();
-				music.playef(3,10);
+				sfx.Create(3, 1);
 
 				game.trinkets++;
 				obj.collect[vvvvvv::Utility::toInt(words[1])] = 1;
@@ -1892,7 +1894,7 @@ void ScriptClass::run( KeyPoll& key, Graphics& dwgfx, Game& game, MapClass& map,
 			}
 			else if (words[0] == "foundlab")
 			{
-				music.playef(3,10);
+				sfx.Create(3, 1);
 
 				dwgfx.textboxremovefast();
 

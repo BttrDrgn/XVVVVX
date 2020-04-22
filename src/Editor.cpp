@@ -18,6 +18,8 @@
 
 #include <string>
 
+extern CSound sfx;
+
 edlevelclass::edlevelclass()
 {
     tileset=0;
@@ -3663,7 +3665,7 @@ void editorinput( KeyPoll& key, Graphics& dwgfx, Game& game, MapClass& map, Enti
             if(key.keymap[SDLK_BACKSPACE] && ed.deletekeyheld==0)
             {
                 ed.deletekeyheld=1;
-                music.playef(2);
+                sfx.Create(2, 1);
                 ed.removehook(ed.hooklist[(ed.numhooks-1)-ed.hookmenu]);
             }
 
@@ -4027,7 +4029,7 @@ void editorinput( KeyPoll& key, Graphics& dwgfx, Game& game, MapClass& map, Enti
                         }
                         else if (game.currentmenuoption == 4)
                         {
-                            music.playef(11, 10);
+                            sfx.Create(11, 1);
                             game.createmenu("ed_settings");
                             map.nexttowercolour();
                         }
@@ -4037,14 +4039,14 @@ void editorinput( KeyPoll& key, Graphics& dwgfx, Game& game, MapClass& map, Enti
                         if (game.currentmenuoption == 0)
                         {
                             //Change level description stuff
-                            music.playef(11, 10);
+                            sfx.Create(11, 1);
                             game.createmenu("ed_desc");
                             map.nexttowercolour();
                         }
                         else if (game.currentmenuoption == 1)
                         {
                             //Enter script editormode
-                            music.playef(11, 10);
+                            sfx.Create(11, 1);
                             ed.scripteditmod=true;
                             ed.clearscriptbuffer();
                             key.enabletextentry();
@@ -4058,7 +4060,7 @@ void editorinput( KeyPoll& key, Graphics& dwgfx, Game& game, MapClass& map, Enti
                         }
                         else if (game.currentmenuoption == 2)
                         {
-                            music.playef(11, 10);
+                            sfx.Create(11, 1);
                             game.createmenu("ed_music");
                             map.nexttowercolour();
                             if(ed.levmusic>0) music.play(ed.levmusic);
@@ -4095,7 +4097,7 @@ void editorinput( KeyPoll& key, Graphics& dwgfx, Game& game, MapClass& map, Enti
                         }
                         else if (game.currentmenuoption == 5)
                         {
-                            music.playef(11, 10);
+                            sfx.Create(11, 1);
                             game.createmenu("ed_quit");
                             map.nexttowercolour();
                         }
@@ -4117,11 +4119,11 @@ void editorinput( KeyPoll& key, Graphics& dwgfx, Game& game, MapClass& map, Enti
                             {
                                 music.haltdasmusik();
                             }
-                            music.playef(11, 10);
+                            sfx.Create(11, 1);
                         }
                         else if (game.currentmenuoption == 1)
                         {
-                            music.playef(11, 10);
+                            sfx.Create(11, 1);
                             music.fadeout();
                             game.createmenu("ed_settings");
                             map.nexttowercolour();
@@ -4149,14 +4151,14 @@ void editorinput( KeyPoll& key, Graphics& dwgfx, Game& game, MapClass& map, Enti
                         else if (game.currentmenuoption == 1)
                         {
                             //Quit without saving
-                            music.playef(11, 10);
+                            sfx.Create(11, 1);
                             music.fadeout();
                             dwgfx.fademode = 2;
                         }
                         else if (game.currentmenuoption == 2)
                         {
                             //Go back to editor
-                            music.playef(11, 10);
+                            sfx.Create(11, 1);
                             game.createmenu("ed_settings");
                             map.nexttowercolour();
                         }

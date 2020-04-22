@@ -31,18 +31,19 @@ public:
  class CSound
 {
 protected:
-      IDirectMusicSegment8*     m_pSoundSegment;
+      IDirectMusicSegment8* m_pSoundSegment;
 
 public:
 
-      void Create(char* filename);
+      void Create(int t, int p);
       void playsound();
       void Release(); 
+	  CSound();
 
 protected:
-      static IDirectMusicLoader8*      m_pLoader;
+      static IDirectMusicLoader8* m_pLoader;
       static IDirectMusicPerformance8* m_pPerformance;
-      void LoadSound(char* filename);
+	  void LoadSound(char* filename);
       void SetupSound();
 
 };

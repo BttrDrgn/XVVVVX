@@ -3,6 +3,7 @@
 #include "Utility.h"
 
 extern int temp;
+extern CSound sfx;
 
 void titlelogic( Graphics& dwgfx, Game& game, EntityClass& obj, MusicClass& music, MapClass& map)
 {
@@ -26,11 +27,11 @@ void titlelogic( Graphics& dwgfx, Game& game, EntityClass& obj, MusicClass& musi
             }
             else if (game.menudest == "gameover2")
             {
-                music.playef(11, 10);
+                sfx.Create(11, 1);
             }
             else if (game.menudest == "timetrialcomplete3")
             {
-                music.playef(3, 10);
+                sfx.Create(3, 1);
             }
             game.createmenu(game.menudest);
         }
@@ -133,7 +134,7 @@ void gamecompletelogic2(Graphics& dwgfx, Game& game, EntityClass& obj,  MusicCla
         map.colstate = 10;
         game.gamestate = 1;
         dwgfx.fademode = 4;
-        music.playef(18, 10);
+        sfx.Create(18, 1);
         game.createmenu("gamecompletecontinue");
         map.nexttowercolour();
     }
@@ -323,9 +324,9 @@ void towerlogic(Graphics& dwgfx, Game& game, EntityClass& obj,  MusicClass& musi
                 {
                     game.hascontrol = false;
                 }
-                if(game.timetrialcountdown == 120) music.playef(21, 10);
-                if(game.timetrialcountdown == 90) music.playef(21, 10);
-                if(game.timetrialcountdown == 60) music.playef(21, 10);
+                if(game.timetrialcountdown == 120) sfx.Create(21, 1);
+                if(game.timetrialcountdown == 90) sfx.Create(21, 1);
+                if(game.timetrialcountdown == 60) sfx.Create(21, 1);
                 if (game.timetrialcountdown == 30)
                 {
                     switch(game.timetriallevel)
@@ -349,7 +350,7 @@ void towerlogic(Graphics& dwgfx, Game& game, EntityClass& obj,  MusicClass& musi
                         music.play(15);
                         break;
                     }
-                    music.playef(22, 10);
+                    sfx.Create(22, 1);
                 }
             }
 
@@ -364,7 +365,7 @@ void towerlogic(Graphics& dwgfx, Game& game, EntityClass& obj,  MusicClass& musi
                     {
                         obj.entities[i].tile = 144;
                     }
-                    music.playef(2, 10);
+                    sfx.Create(2, 1);
                 }
             }
         }
@@ -548,7 +549,7 @@ void gamelogic(Graphics& dwgfx, Game& game, EntityClass& obj,  MusicClass& music
         game.alarmdelay--;
         if (game.alarmdelay <= 0)
         {
-            music.playef(19);
+            sfx.Create(19, 1);
             game.alarmdelay = 20;
         }
     }
@@ -562,7 +563,7 @@ void gamelogic(Graphics& dwgfx, Game& game, EntityClass& obj,  MusicClass& music
             //change player to sad
             int i = obj.getplayer();
             obj.entities[i].tile = 144;
-            music.playef(2, 10);
+            sfx.Create(2, 1);
         }
         if (obj.upset > 301) obj.upset = 301;
     }
@@ -652,7 +653,7 @@ void gamelogic(Graphics& dwgfx, Game& game, EntityClass& obj,  MusicClass& music
                 game.swndelay = 0;
                 if (game.swntimer >= game.swnrecord)
                 {
-                    if (game.swnmessage == 0) music.playef(25, 10);
+                    if (game.swnmessage == 0) sfx.Create(25, 1);
                     game.swnmessage = 1;
                     game.swnrecord = game.swntimer;
                 }
@@ -778,7 +779,7 @@ void gamelogic(Graphics& dwgfx, Game& game, EntityClass& obj,  MusicClass& music
                     {
                         game.swnbestrank = 1;
                         game.swnmessage = 2+30;
-                        music.playef(26, 10);
+                        sfx.Create(26, 1);
                     }
                 }
                 else if (game.swntimer >= 300 && game.swnrank == 1)
@@ -788,7 +789,7 @@ void gamelogic(Graphics& dwgfx, Game& game, EntityClass& obj,  MusicClass& music
                     {
                         game.swnbestrank = 2;
                         game.swnmessage = 2+30;
-                        music.playef(26, 10);
+                        sfx.Create(26, 1);
                     }
                 }
                 else if (game.swntimer >= 450 && game.swnrank == 2)
@@ -798,7 +799,7 @@ void gamelogic(Graphics& dwgfx, Game& game, EntityClass& obj,  MusicClass& music
                     {
                         game.swnbestrank = 3;
                         game.swnmessage = 2+30;
-                        music.playef(26, 10);
+                        sfx.Create(26, 1);
                     }
                 }
                 else if (game.swntimer >= 600 && game.swnrank == 3)
@@ -808,7 +809,7 @@ void gamelogic(Graphics& dwgfx, Game& game, EntityClass& obj,  MusicClass& music
                     {
                         game.swnbestrank = 4;
                         game.swnmessage = 2+30;
-                        music.playef(26, 10);
+                        sfx.Create(26, 1);
                     }
                 }
                 else if (game.swntimer >= 900 && game.swnrank == 4)
@@ -818,7 +819,7 @@ void gamelogic(Graphics& dwgfx, Game& game, EntityClass& obj,  MusicClass& music
                     {
                         game.swnbestrank = 5;
                         game.swnmessage = 2+30;
-                        music.playef(26, 10);
+                        sfx.Create(26, 1);
                     }
                 }
                 else if (game.swntimer >= 1800 && game.swnrank == 5)
@@ -828,7 +829,7 @@ void gamelogic(Graphics& dwgfx, Game& game, EntityClass& obj,  MusicClass& music
                     {
                         game.swnbestrank = 6;
                         game.swnmessage = 2+30;
-                        music.playef(26, 10);
+                        sfx.Create(26, 1);
                     }
                 }
 
@@ -912,9 +913,9 @@ void gamelogic(Graphics& dwgfx, Game& game, EntityClass& obj,  MusicClass& music
                 {
                     game.hascontrol = false;
                 }
-                if(game.timetrialcountdown == 120) music.playef(21, 10);
-                if(game.timetrialcountdown == 90) music.playef(21, 10);
-                if(game.timetrialcountdown == 60) music.playef(21, 10);
+                if(game.timetrialcountdown == 120) sfx.Create(21, 1);
+                if(game.timetrialcountdown == 90) sfx.Create(21, 1);
+                if(game.timetrialcountdown == 60) sfx.Create(21, 1);
                 if (game.timetrialcountdown == 30)
                 {
                     switch(game.timetriallevel)
@@ -938,7 +939,7 @@ void gamelogic(Graphics& dwgfx, Game& game, EntityClass& obj,  MusicClass& music
                         music.play(15);
                         break;
                     }
-                    music.playef(22, 10);
+                    sfx.Create(22, 1);
                 }
             }
 
@@ -953,7 +954,7 @@ void gamelogic(Graphics& dwgfx, Game& game, EntityClass& obj,  MusicClass& music
                     {
                         obj.entities[i].tile = 144;
                     }
-                    music.playef(2, 10);
+                    sfx.Create(2, 1);
                 }
             }
         }

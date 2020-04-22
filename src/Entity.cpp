@@ -3,6 +3,8 @@
 #include "Map.h"
 #include "Utility.h"
 
+extern CSound sfx;
+
 bool EntityClass::checktowerspikes(int t, MapClass& map)
 {
     tempx = entities[t].xp + entities[t].cx;
@@ -3132,7 +3134,7 @@ bool EntityClass::updateentities( int i, Game& game, MusicClass& music )
                     entities[i].state = 2;
                     entities[i].onentity = 0;
 
-                    music.playef(7,10);
+                    sfx.Create(7, 1);
                 }
                 else if (entities[i].state == 2)
                 {
@@ -3180,7 +3182,7 @@ bool EntityClass::updateentities( int i, Game& game, MusicClass& music )
                     entities[i].life = 4;
                     entities[i].state = 2;
                     entities[i].onentity = 0;
-                    music.playef(6,10);
+                    sfx.Create(6, 1);
                     /*}else if (entities[j].vy <= -0.5  && (entities[j].yp>=entities[i].yp+2)) {
                     entities[i].life = 4;
                     entities[i].state = 2; entities[i].onentity = 0;
@@ -3220,7 +3222,7 @@ bool EntityClass::updateentities( int i, Game& game, MusicClass& music )
                 if (entities[i].state == 1)
                 {
                     game.coins++;
-                    music.playef(4,10);
+                    sfx.Create(4, 1);
                     collect[entities[i].para] = 1;
 
                     entities[i].active = false;
@@ -3234,14 +3236,14 @@ bool EntityClass::updateentities( int i, Game& game, MusicClass& music )
                     if (game.intimetrial)
                     {
                         collect[entities[i].para] = 1;
-                        music.playef(25,10);
+                        sfx.Create(25, 1);
                     }
                     else
                     {
                         game.state = 1000;
                         //music.haltdasmusik();
                         if(music.currentsong!=-1) music.silencedasmusik();
-                        music.playef(3,10);
+                        sfx.Create(3, 1);
                         collect[entities[i].para] = 1;
                         if (game.trinkets > game.stat_trinkets)
                         {
@@ -3268,7 +3270,7 @@ bool EntityClass::updateentities( int i, Game& game, MusicClass& music )
                     entities[i].colour = 5;
                     entities[i].onentity = 0;
                     game.savepoint = entities[i].para;
-                    music.playef(5,10);
+                    sfx.Create(5, 1);
 
                     game.savex = entities[i].xp - 4;
 
@@ -3309,7 +3311,7 @@ bool EntityClass::updateentities( int i, Game& game, MusicClass& music )
                     entities[i].state = 2;
 
 
-                    music.playef(8,10);
+                    sfx.Create(8, 1);
                     game.gravitycontrol = (game.gravitycontrol + 1) % 2;
                     game.totalflips++;
                     temp = getplayer();
@@ -3351,7 +3353,7 @@ bool EntityClass::updateentities( int i, Game& game, MusicClass& music )
                     //Depending on the room the warp point is in, teleport to a new location!
                     entities[i].onentity = 0;
                     //play a sound or somefink
-                    music.playef(10);
+                    sfx.Create(10, 1);
                     game.teleport = true;
 
                     game.edteleportent = i;
@@ -3688,7 +3690,7 @@ bool EntityClass::updateentities( int i, Game& game, MusicClass& music )
                 {
                     entities[i].colour = 5;
                     entities[i].onentity = 0;
-                    music.playef(17,10);
+                    sfx.Create(17, 1);
 
                     entities[i].state = 0;
                 }
@@ -3856,14 +3858,14 @@ bool EntityClass::updateentities( int i, Game& game, MusicClass& music )
                     if (game.intimetrial)
                     {
                         customcollect[entities[i].para] = 1;
-                        music.playef(27,10);
+                        sfx.Create(27, 1);
                     }
                     else
                     {
                         game.state = 1010;
                         //music.haltdasmusik();
                         if(music.currentsong!=-1) music.silencedasmusik();
-                        music.playef(27,10);
+                        sfx.Create(27, 1);
                         customcollect[entities[i].para] = 1;
                     }
 
@@ -3876,7 +3878,7 @@ bool EntityClass::updateentities( int i, Game& game, MusicClass& music )
                     //if inactive, activate!
                     if (entities[i].tile == 1)
                     {
-                        music.playef(18, 10);
+                        sfx.Create(18, 1);
                         entities[i].onentity = 0;
                         entities[i].tile = 2;
                         entities[i].colour = 101;
@@ -5333,7 +5335,7 @@ void EntityClass::entitycollisioncheck( Graphics& dwgfx, Game& game, MapClass& m
                             {
                                 if (entityhlinecollide(i, j))
                                 {
-                                    music.playef(8,10);
+                                    sfx.Create(8, 1);
                                     game.gravitycontrol = (game.gravitycontrol + 1) % 2;
                                     game.totalflips++;
                                     if (game.gravitycontrol == 0)

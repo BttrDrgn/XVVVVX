@@ -49,11 +49,15 @@
 			<Tool
 				Name="VCPreLinkEventTool"/>
 			<Tool
-				Name="XboxDeploymentTool"/>
+				Name="XboxDeploymentTool"
+				SuppressStartupBanner="FALSE"
+				RemotePath="xe:\$(SolutionName)\default.xbe"/>
 			<Tool
 				Name="XboxImageTool"
+				FileName="$(TargetDir)default.xbe"
 				StackSize="65536"
 				IncludeDebugInfo="TRUE"
+				SuppressStartupBanner="FALSE"
 				NoLibWarn="TRUE"/>
 		</Configuration>
 		<Configuration

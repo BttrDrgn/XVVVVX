@@ -88,14 +88,53 @@ void SoundSystem::playMusic(MusicTrack* music)
 //Help from http://www.xbdev.net/tuts/subpages/prt9/index.php
 IDirectMusicLoader8*          CSound::m_pLoader       = NULL;
 IDirectMusicPerformance8*     CSound::m_pPerformance  = NULL;
+std::vector<char*> sfxs;
+std::vector<char*> music;
 
- void CSound::Create(char* filename)
+CSound::CSound()
 {
-      if( (m_pLoader == NULL) && (m_pPerformance == NULL)) SetupSound();
-      LoadSound(filename);
+	sfxs.push_back("D:\\data\\sounds\\jump.wav");
+	sfxs.push_back("D:\\data\\sounds\\jump2.wav");
+	sfxs.push_back("D:\\data\\sounds\\hurt.wav");
+	sfxs.push_back("D:\\data\\sounds\\souleyeminijingle.wav");
+	sfxs.push_back("D:\\data\\sounds\\coin.wav");
+	sfxs.push_back("D:\\data\\sounds\\save.wav");
+	sfxs.push_back("D:\\data\\sounds\\crumble.wav");
+	sfxs.push_back("D:\\data\\sounds\\vanish.wav");
+	sfxs.push_back("D:\\data\\sounds\\blip.wav");
+	sfxs.push_back("D:\\data\\sounds\\preteleport.wav");
+	sfxs.push_back("D:\\data\\sounds\\teleport.wav");
+	sfxs.push_back("D:\\data\\sounds\\crew1.wav");
+	sfxs.push_back("D:\\data\\sounds\\crew2.wav");
+	sfxs.push_back("D:\\data\\sounds\\crew3.wav");
+	sfxs.push_back("D:\\data\\sounds\\crew4.wav");
+	sfxs.push_back("D:\\data\\sounds\\crew5.wav");
+	sfxs.push_back("D:\\data\\sounds\\crew6.wav");
+	sfxs.push_back("D:\\data\\sounds\\terminal.wav");
+	sfxs.push_back("D:\\data\\sounds\\gamesaved.wav");
+	sfxs.push_back("D:\\data\\sounds\\crashing.wav");
+	sfxs.push_back("D:\\data\\sounds\\blip2.wav");
+	sfxs.push_back("D:\\data\\sounds\\countdown.wav");
+	sfxs.push_back("D:\\data\\sounds\\go.wav");
+	sfxs.push_back("D:\\data\\sounds\\crash.wav");
+	sfxs.push_back("D:\\data\\sounds\\combine.wav");
+	sfxs.push_back("D:\\data\\sounds\\newrecord.wav");
+	sfxs.push_back("D:\\data\\sounds\\trophy.wav");
+	sfxs.push_back("D:\\data\\sounds\\rescue.wav");
 }
 
- void CSound::LoadSound(char* filename)
+ void CSound::Create(int t, int p = 0)
+{
+      if( (m_pLoader == NULL) && (m_pPerformance == NULL)) SetupSound();
+      LoadSound(sfxs[t]);
+
+	  if(p == 1)
+	  {
+		  CSound::playsound();
+	  }
+}
+
+void CSound::LoadSound(char* filename)
 {    
     m_pLoader->LoadObjectFromFile( CLSID_DirectMusicSegment, IID_IDirectMusicSegment8,
 	filename, (VOID**)&m_pSoundSegment);

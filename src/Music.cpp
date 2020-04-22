@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include "Music.h"
 #include "BinaryBlob.h"
+#include "filesystem.h"
 
 MusicClass::MusicClass()
 {
@@ -35,28 +36,29 @@ MusicClass::MusicClass()
 	soundTracks.push_back(SoundTrack( "D:\\data\\sounds\\rescue.wav" ));
 #ifdef VVV_COMPILEMUSIC
 	binaryBlob musicWriteBlob;
-	musicWriteBlob.AddFileToBinaryBlob("data/music/0levelcomplete.ogg");
-	musicWriteBlob.AddFileToBinaryBlob("data/music/1pushingonwards.ogg");
-	musicWriteBlob.AddFileToBinaryBlob("data/music/2positiveforce.ogg");
-	musicWriteBlob.AddFileToBinaryBlob("data/music/3potentialforanything.ogg");
-	musicWriteBlob.AddFileToBinaryBlob("data/music/4passionforexploring.ogg");
-	musicWriteBlob.AddFileToBinaryBlob("data/music/5intermission.ogg");
-	musicWriteBlob.AddFileToBinaryBlob("data/music/6presentingvvvvvv.ogg");
-	musicWriteBlob.AddFileToBinaryBlob("data/music/7gamecomplete.ogg");
-	musicWriteBlob.AddFileToBinaryBlob("data/music/8predestinedfate.ogg");
-	musicWriteBlob.AddFileToBinaryBlob("data/music/9positiveforcereversed.ogg");
-	musicWriteBlob.AddFileToBinaryBlob("data/music/10popularpotpourri.ogg");
-	musicWriteBlob.AddFileToBinaryBlob("data/music/11pipedream.ogg");
-	musicWriteBlob.AddFileToBinaryBlob("data/music/12pressurecooker.ogg");
-	musicWriteBlob.AddFileToBinaryBlob("data/music/13pacedenergy.ogg");
-	musicWriteBlob.AddFileToBinaryBlob("data/music/14piercingthesky.ogg");
-	musicWriteBlob.AddFileToBinaryBlob("data/music/predestinedfatefinallevel.ogg");
+
+	musicWriteBlob.AddFileToBinaryBlob("D:\\data\\music\\0levelcomplete.ogg");
+	musicWriteBlob.AddFileToBinaryBlob("D:\\data\\music\\1pushingonwards.ogg");
+	musicWriteBlob.AddFileToBinaryBlob("D:\\data\\music\\2positiveforce.ogg");
+	musicWriteBlob.AddFileToBinaryBlob("D:\\data\\music\\3potentialforanything.ogg");
+	musicWriteBlob.AddFileToBinaryBlob("D:\\data\\music\\4passionforexploring.ogg");
+	musicWriteBlob.AddFileToBinaryBlob("D:\\data\\music\\5intermission.ogg");
+	musicWriteBlob.AddFileToBinaryBlob("D:\\data\\music\\6presentingvvvvvv.ogg");
+	musicWriteBlob.AddFileToBinaryBlob("D:\\data\\music\\7gamecomplete.ogg");
+	musicWriteBlob.AddFileToBinaryBlob("D:\\data\\music\\8predestinedfate.ogg");
+	musicWriteBlob.AddFileToBinaryBlob("D:\\data\\music\\9positiveforcereversed.ogg");
+	musicWriteBlob.AddFileToBinaryBlob("D:\\data\\music\\10popularpotpourri.ogg");
+	musicWriteBlob.AddFileToBinaryBlob("D:\\data\\music\\11pipedream.ogg");
+	musicWriteBlob.AddFileToBinaryBlob("D:\\data\\music\\12pressurecooker.ogg");
+	musicWriteBlob.AddFileToBinaryBlob("D:\\data\\music\\13pacedenergy.ogg");
+	musicWriteBlob.AddFileToBinaryBlob("D:\\data\\music\\14piercingthesky.ogg");
+	musicWriteBlob.AddFileToBinaryBlob("D:\\data\\music\\predestinedfatefinallevel.ogg");
 
 	musicWriteBlob.writeBinaryBlob("D:\\data\\BinaryMusic.vvv");
 #endif
 
 	binaryBlob musicReadBlob;
-	if (!musicReadBlob.unPackBinary("mmmmmm.vvv"))
+	if (!fs::exists("D:\\data\\mmmmmm.vvv")) /* !musicReadBlob.unPackBinary("D:\\data\\mmmmmm.vvv") */
 	{
 		mmmmmm = false;
 		usingmmmmmm=false;
