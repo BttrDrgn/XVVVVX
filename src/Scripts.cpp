@@ -311,7 +311,7 @@ void ScriptClass::load(std::string t)
         }
       }
     }
-#define SCHUNK 1
+#define SCHUNK 0
 #if (SCHUNK == 0)
     else if (t == "intro")
     {

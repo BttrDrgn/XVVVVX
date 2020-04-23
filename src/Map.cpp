@@ -1575,6 +1575,7 @@ void MapClass::loadlevel(int rx, int ry, Graphics& dwgfx, Game& game, EntityClas
 		break;
 	case 11: //Tower Hallways //Content is held in final level routine
 	{
+		tmap.clear();
 		tmap = finallevel.loadLevel(rx, ry, game, obj);
 		fillcontent(tmap);
 		roomname = finallevel.roomName;

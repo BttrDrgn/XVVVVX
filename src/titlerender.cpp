@@ -115,7 +115,7 @@ void titlerender(Graphics& dwgfx, MapClass& map, Game& game, EntityClass& obj, M
 							dwgfx.Print(-1,temp+35,"	XBOX EDITION",tr, tg, tb, true);
 #endif
 
-            dwgfx.Print( 310 - 12 * 8, 230, "Xbox r3", tr/2, tg/2, tb/2);
+            dwgfx.Print( 310 - 12 * 8, 230, "Xbox r6", tr/2, tg/2, tb/2);
 
 						if(music.mmmmmm){
 						  dwgfx.Print( 10, 230, "[MMMMMM Mod Installed]", tr/2, tg/2, tb/2);

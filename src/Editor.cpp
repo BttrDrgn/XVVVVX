@@ -3537,8 +3537,8 @@ void editorlogic( KeyPoll& key, Graphics& dwgfx, Game& game, EntityClass& obj, M
         map.colstate = 10;
         game.gamestate = 1;
         dwgfx.fademode = 4;
-        music.stopmusic();
-        music.play(6);
+        sfx.stop();
+        sfx.CreateMusic(6, 1);
         map.nexttowercolour();
         ed.settingsmod=false;
         dwgfx.backgrounddrawn=false;
@@ -4063,7 +4063,7 @@ void editorinput( KeyPoll& key, Graphics& dwgfx, Game& game, MapClass& map, Enti
                             sfx.Create(11, 1);
                             game.createmenu("ed_music");
                             map.nexttowercolour();
-                            if(ed.levmusic>0) music.play(ed.levmusic);
+                            if(ed.levmusic>0) sfx.CreateMusic(ed.levmusic, 1);
                         }
                         else if (game.currentmenuoption == 3)
                         {
@@ -4113,7 +4113,7 @@ void editorinput( KeyPoll& key, Graphics& dwgfx, Game& game, MapClass& map, Enti
                             if(ed.levmusic==15) ed.levmusic=0;
                             if(ed.levmusic>0)
                             {
-                                music.play(ed.levmusic);
+                                sfx.CreateMusic(ed.levmusic, 1);
                             }
                             else
                             {
@@ -4458,7 +4458,7 @@ void editorinput( KeyPoll& key, Graphics& dwgfx, Game& game, MapClass& map, Enti
                             game.edsavedir=1-edentity[testeditor].p1;
                         }
 
-                        music.stopmusic();
+                        sfx.stop();
                         dwgfx.backgrounddrawn=false;
                         script.startgamemode(21, key, dwgfx, game, map, obj, music);
                     }

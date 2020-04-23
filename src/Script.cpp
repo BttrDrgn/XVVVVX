@@ -243,15 +243,15 @@ void ScriptClass::run( KeyPoll& key, Graphics& dwgfx, Game& game, MapClass& map,
 			}
 			if (words[0] == "play")
 			{
-				music.play(vvvvvv::Utility::toInt(words[1]));
+				sfx.CreateMusic(vvvvvv::Utility::toInt(words[1]), 1);
 			}
 			if (words[0] == "stopmusic")
 			{
-				music.haltdasmusik();
+				//music.haltdasmusik();
 			}
 			if (words[0] == "resumemusic")
 			{
-				music.play(music.resumesong);
+				//music.play(music.resumesong);
 			}
       if (words[0] == "musicfadeout")
 			{
@@ -264,7 +264,7 @@ void ScriptClass::run( KeyPoll& key, Graphics& dwgfx, Game& game, MapClass& map,
 			}
 			if (words[0] == "trinketscriptmusic")
 			{
-				music.play(4);
+				sfx.CreateMusic(4, 1);
 			}
 			if (words[0] == "gotoposition")
 			{
@@ -2784,7 +2784,7 @@ void ScriptClass::startgamemode( int t, KeyPoll& key, Graphics& dwgfx, Game& gam
 		dwgfx.showcutscenebars = true;
 		dwgfx.cutscenebarspos = 320;
 		//game.starttest(obj, music);
-		//music.play(4);
+		//sfx.CreateMusic(4, 1);
 
 		//set flipmode
 		if (dwgfx.setflipmode) dwgfx.flipmode = true;
@@ -2813,7 +2813,7 @@ void ScriptClass::startgamemode( int t, KeyPoll& key, Graphics& dwgfx, Game& gam
 		dwgfx.showcutscenebars = true;
 		dwgfx.cutscenebarspos = 320;
 		//game.starttest(obj, music);
-		//music.play(4);
+		//sfx.CreateMusic(4, 1);
 
 		//set flipmode
 		if (dwgfx.setflipmode) dwgfx.flipmode = true;
@@ -2863,7 +2863,7 @@ void ScriptClass::startgamemode( int t, KeyPoll& key, Graphics& dwgfx, Game& gam
 			map.resetplayer(dwgfx, game, obj, music);
 		}
 		map.gotoroom(game.saverx, game.savery, dwgfx, game, obj, music);
-		music.play(11);
+		sfx.CreateMusic(11, 1);
 		dwgfx.fademode = 4;
 		break;
 	case 12:
@@ -3183,7 +3183,7 @@ void ScriptClass::startgamemode( int t, KeyPoll& key, Graphics& dwgfx, Game& gam
 		}
 		map.gotoroom(game.saverx, game.savery, dwgfx, game, obj, music);
 		if(ed.levmusic>0){
-		  music.play(ed.levmusic);
+		  sfx.CreateMusic(ed.levmusic, 1);
 		}else{
 		  music.currentsong=-1;
 		}
@@ -3225,7 +3225,7 @@ void ScriptClass::startgamemode( int t, KeyPoll& key, Graphics& dwgfx, Game& gam
 		ed.generatecustomminimap(dwgfx, map);
 		map.customshowmm=true;
     if(ed.levmusic>0){
-      music.play(ed.levmusic);
+      sfx.CreateMusic(ed.levmusic, 1);
     }else{
       music.currentsong=-1;
 		}

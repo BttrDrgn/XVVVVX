@@ -36,7 +36,9 @@ protected:
 public:
 
       void Create(int t, int p);
+	  void CreateMusic(int t, int p);
       void playsound();
+	  void stop();
       void Release(); 
 	  CSound();
 

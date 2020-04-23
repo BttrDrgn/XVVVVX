@@ -1,14 +1,3 @@
-/*
-
-	TODO: Redo the entire SoundSystem and merge it with Music
-
-		  Get base game maps loading in a way that the VS 2003 compiler respects
-
-		  Optimize performance of rendering (maybe redo renderer in DirectX so it
-											 will be hardware accelerated)
-
-*/
-
 #include <SDL.h>
 #include <xtl.h>
 #include "filesystem.h"

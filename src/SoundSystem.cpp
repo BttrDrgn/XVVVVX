@@ -2,6 +2,7 @@
 
 #include "SoundSystem.h"
 #include "FileSystemUtils.h"
+#include "filesystem.h"
 
 MusicTrack::MusicTrack(const char* fileName)
 {
@@ -91,6 +92,8 @@ IDirectMusicPerformance8*     CSound::m_pPerformance  = NULL;
 std::vector<char*> sfxs;
 std::vector<char*> music;
 
+bool hasmusic = true;
+
 CSound::CSound()
 {
 	sfxs.push_back("D:\\data\\sounds\\jump.wav");
@@ -121,17 +124,55 @@ CSound::CSound()
 	sfxs.push_back("D:\\data\\sounds\\newrecord.wav");
 	sfxs.push_back("D:\\data\\sounds\\trophy.wav");
 	sfxs.push_back("D:\\data\\sounds\\rescue.wav");
+
+	music.push_back("D:\\data\\music\\0levelcomplete.wav");
+	music.push_back("D:\\data\\music\\1pushingonwards.wav");
+	music.push_back("D:\\data\\music\\2positiveforce.wav");
+	music.push_back("D:\\data\\music\\3potentialforanything.wav");
+	music.push_back("D:\\data\\music\\4passionforexploring.wav");
+	music.push_back("D:\\data\\music\\5intermission.wav");
+	music.push_back("D:\\data\\music\\6presentingvvvvvv.wav");
+	music.push_back("D:\\data\\music\\7gamecomplete.wav");
+	music.push_back("D:\\data\\music\\8predestinedfate.wav");
+	music.push_back("D:\\data\\music\\9positiveforcereversed.wav");
+	music.push_back("D:\\data\\music\\10popularpotpourri.wav");
+	music.push_back("D:\\data\\music\\11pipedream.wav");
+	music.push_back("D:\\data\\music\\12pressurecooker.wav");
+	music.push_back("D:\\data\\music\\13pacedenergy.wav");
+	music.push_back("D:\\data\\music\\14piercingthesky.wav");
+	music.push_back("D:\\data\\music\\predestinedfatefinallevel.wav");
+
+	/*Dont play ANY music if we dont have one just incase; Will cause crash when playing
+															nonexistent sound files */
+	for(int i = 0; i < music.size(); i++)
+	{
+		if(!fs::exists(music[i])) hasmusic = false;
+	}
 }
 
- void CSound::Create(int t, int p = 0)
+void CSound::Create(int t, int p = 0)
 {
       if( (m_pLoader == NULL) && (m_pPerformance == NULL)) SetupSound();
       LoadSound(sfxs[t]);
 
-	  if(p == 1)
+	  if(p >= 1)
 	  {
 		  CSound::playsound();
 	  }
+}
+
+void CSound::CreateMusic(int t, int p)
+{
+	if(hasmusic)
+	{
+		if( (m_pLoader == NULL) && (m_pPerformance == NULL)) SetupSound();
+		LoadSound(music[t]);
+		if(p >= 1) CSound::playsound();
+	}
+	else
+	{
+		return;
+	}
 }
 
 void CSound::LoadSound(char* filename)
@@ -168,4 +209,9 @@ void CSound::LoadSound(char* filename)
  void CSound::Release()
 {
 	m_pSoundSegment->Release();
+}
+
+void CSound::stop()
+{
+	m_pPerformance->StopEx(NULL, 0, 0);
 }

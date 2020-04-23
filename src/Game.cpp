@@ -636,7 +636,7 @@ void Game::updatestate( Graphics& dwgfx, MapClass& map, EntityClass& obj, MusicC
             break;
         case 4:
             //End of opening cutscene for now
-            dwgfx.createtextbox("  Press arrow keys or WASD to move  ", -1, 195, 174, 174, 174);
+            dwgfx.createtextbox("  Move the Left Joystick to move  ", -1, 195, 174, 174, 174);
             dwgfx.textboxtimer(60);
             state = 0;
             break;
@@ -667,8 +667,11 @@ void Game::updatestate( Graphics& dwgfx, MapClass& map, EntityClass& obj, MusicC
             if (obj.flags[13] == 0)
             {
                 obj.changeflag(13, 1);
-                dwgfx.createtextbox("  Press ENTER to view map  ", -1, 155, 174, 174, 174);
+                dwgfx.createtextbox("  Press MAP to view map  ", -1, 155, 174, 174, 174);
                 dwgfx.addline("      and quicksave");
+                dwgfx.addline("(Visit settings to see default binds");
+				dwgfx.addline("		or change them)");
+
                 dwgfx.textboxtimer(60);
             }
             state = 0;
@@ -1269,7 +1272,7 @@ void Game::updatestate( Graphics& dwgfx, MapClass& map, EntityClass& obj, MusicC
         case 81:
             gamestate = 1;
             dwgfx.fademode = 4;
-            music.play(6);
+            sfx.CreateMusic(6, 1);
             dwgfx.backgrounddrawn = false;
             map.tdrawback = true;
             dwgfx.flipmode = false;
@@ -1331,7 +1334,7 @@ void Game::updatestate( Graphics& dwgfx, MapClass& map, EntityClass& obj, MusicC
             //Init final stretch
             state++;
             sfx.Create(9, 1);
-            music.play(2);
+            sfx.CreateMusic(2, 1);
             obj.flags[72] = 1;
 
             screenshake = 10;
@@ -1606,7 +1609,7 @@ void Game::updatestate( Graphics& dwgfx, MapClass& map, EntityClass& obj, MusicC
             //Init final stretch
             state++;
             sfx.Create(9, 1);
-            //music.play(2);
+            //sfx.CreateMusic(2, 1);
             obj.flags[72] = 1;
 
             screenshake = 10;
@@ -2000,7 +2003,7 @@ void Game::updatestate( Graphics& dwgfx, MapClass& map, EntityClass& obj, MusicC
             dwgfx.flipmode = false;
             gamestate = TITLEMODE;
             dwgfx.fademode = 4;
-            music.play(6);
+            sfx.CreateMusic(6, 1);
             dwgfx.backgrounddrawn = true;
             map.tdrawback = true;
             //Update level stats
@@ -2047,7 +2050,7 @@ void Game::updatestate( Graphics& dwgfx, MapClass& map, EntityClass& obj, MusicC
 
         case 2500:
 
-            music.play(5);
+            sfx.CreateMusic(5, 1);
             //Activating a teleporter (appear)
             state++;
             statedelay = 15;
@@ -2142,7 +2145,7 @@ void Game::updatestate( Graphics& dwgfx, MapClass& map, EntityClass& obj, MusicC
             advancetext = false;
 
             state = 0;
-            music.play(3);
+            sfx.CreateMusic(3, 1);
             break;
 
 
@@ -2232,7 +2235,7 @@ void Game::updatestate( Graphics& dwgfx, MapClass& map, EntityClass& obj, MusicC
             //Level complete! (warp zone)
             unlocknum(4, map, dwgfx);
             lastsaved = 4;
-            music.play(0);
+            sfx.CreateMusic(0, 1);
             state++;
             statedelay = 75;
 
@@ -2346,7 +2349,7 @@ void Game::updatestate( Graphics& dwgfx, MapClass& map, EntityClass& obj, MusicC
             //Level complete! (Space Station 2)
             unlocknum(3, map, dwgfx);
             lastsaved = 2;
-            music.play(0);
+            sfx.CreateMusic(0, 1);
             state++;
             statedelay = 75;
 
@@ -2461,7 +2464,7 @@ void Game::updatestate( Graphics& dwgfx, MapClass& map, EntityClass& obj, MusicC
             //Level complete! (Lab)
             unlocknum(1, map, dwgfx);
             lastsaved = 5;
-            music.play(0);
+            sfx.CreateMusic(0, 1);
             state++;
             statedelay = 75;
 
@@ -2575,7 +2578,7 @@ void Game::updatestate( Graphics& dwgfx, MapClass& map, EntityClass& obj, MusicC
             //Level complete! (Space Station 1)
             unlocknum(0, map, dwgfx);
             lastsaved = 1;
-            music.play(0);
+            sfx.CreateMusic(0, 1);
             state++;
             statedelay = 75;
 
@@ -2709,7 +2712,7 @@ void Game::updatestate( Graphics& dwgfx, MapClass& map, EntityClass& obj, MusicC
             //Level complete! (Tower)
             unlocknum(2, map, dwgfx);
             lastsaved = 3;
-            music.play(0);
+            sfx.CreateMusic(0, 1);
             state++;
             statedelay = 75;
 
@@ -2963,7 +2966,7 @@ void Game::updatestate( Graphics& dwgfx, MapClass& map, EntityClass& obj, MusicC
             dwgfx.backgrounddrawn = true;
             map.tdrawback = true;
             createmenu("play");
-            music.play(6);
+            sfx.CreateMusic(6, 1);
             state = 0;
             break;
 
@@ -3003,7 +3006,7 @@ void Game::updatestate( Graphics& dwgfx, MapClass& map, EntityClass& obj, MusicC
             crewstats[0] = true;
             state++;
             statedelay = 75;
-            music.play(7);
+            sfx.CreateMusic(6, 1);
 
             if (dwgfx.flipmode)
             {
@@ -4595,7 +4598,7 @@ void Game::start( EntityClass& obj, MusicClass& music )
 
     //let's teleport in!
     //state = 2500;
-    if (!nocutscenes) music.play(5);
+    if (!nocutscenes) sfx.CreateMusic(5, 1);
 }
 
 void Game::deathsequence( MapClass& map, EntityClass& obj, MusicClass& music )
@@ -4961,7 +4964,7 @@ void Game::loadquick( MapClass& map, EntityClass& obj, MusicClass& music )
         }
         else if (pKey == "currentsong")
         {
-            music.play(atoi(pText));
+            sfx.CreateMusic(atoi(pText), 1);
         }
 
     }
@@ -5229,7 +5232,7 @@ void Game::customloadquick(std::string savfile, MapClass& map, EntityClass& obj,
         }
         else if (pKey == "currentsong")
         {
-            music.play(atoi(pText));
+            sfx.Create(atoi(pText), 1);
         }
         else if (pKey == "showminimap")
         {
@@ -6435,7 +6438,7 @@ void Game::loadtele( MapClass& map, EntityClass& obj, MusicClass& music )
         }
         else if (pKey == "currentsong")
         {
-            music.play(atoi(pText));
+            sfx.CreateMusic(atoi(pText), 1);
         }
 
     }

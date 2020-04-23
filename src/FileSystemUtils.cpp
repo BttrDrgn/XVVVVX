@@ -1,7 +1,6 @@
 #include "FileSystemUtils.h"
 #include "filesystem.h"
 #include "Utility.h"
-#include <physfs.h>
 
 #include <vector>
 #include <string>
@@ -29,6 +28,7 @@ int FILESYSTEM_init()
 	if(!fs::exists("D:\\user\\saves")) fs::makedir("D:\\user\\saves");
 	if(!fs::exists("D:\\user\\levels")) fs::makedir("D:\\user\\levels");
 	if(!fs::exists("D:\\data")) fs::makedir("D:\\data");
+	if(!fs::exists("D:\\data\\music")) fs::makedir("D:\\data\\music");
 
 	//Check if data exists; would be better to check for all but ehh
 	if(!fs::exists("D:\\data\\VVVVVV.png"))
@@ -39,7 +39,6 @@ int FILESYSTEM_init()
 	}
 	else
 	{
-		PHYSFS_init(NULL);
 		return 1;
 	}
 }

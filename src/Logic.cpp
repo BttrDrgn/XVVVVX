@@ -23,7 +23,7 @@ void titlelogic( Graphics& dwgfx, Game& game, EntityClass& obj, MusicClass& musi
         {
             if (game.menudest == "mainmenu")
             {
-                music.play(6);
+                sfx.CreateMusic(6, 1);
             }
             else if (game.menudest == "gameover2")
             {
@@ -332,22 +332,22 @@ void towerlogic(Graphics& dwgfx, Game& game, EntityClass& obj,  MusicClass& musi
                     switch(game.timetriallevel)
                     {
                     case 0:
-                        music.play(1);
+                        sfx.CreateMusic(1, 1);
                         break;
                     case 1:
-                        music.play(3);
+                        sfx.CreateMusic(3, 1);
                         break;
                     case 2:
-                        music.play(2);
+                        sfx.CreateMusic(2, 1);
                         break;
                     case 3:
-                        music.play(1);
+                        sfx.CreateMusic(1, 1);
                         break;
                     case 4:
-                        music.play(12);
+                        sfx.CreateMusic(12, 1);
                         break;
                     case 5:
-                        music.play(15);
+                        sfx.CreateMusic(15, 1);
                         break;
                     }
                     sfx.Create(22, 1);
@@ -921,22 +921,22 @@ void gamelogic(Graphics& dwgfx, Game& game, EntityClass& obj,  MusicClass& music
                     switch(game.timetriallevel)
                     {
                     case 0:
-                        music.play(1);
+                        sfx.CreateMusic(1, 1);
                         break;
                     case 1:
-                        music.play(3);
+                        sfx.CreateMusic(3, 1);
                         break;
                     case 2:
-                        music.play(2);
+                        sfx.CreateMusic(2, 1);
                         break;
                     case 3:
-                        music.play(1);
+                        sfx.CreateMusic(1, 1);
                         break;
                     case 4:
-                        music.play(12);
+                        sfx.CreateMusic(12, 1);
                         break;
                     case 5:
-                        music.play(15);
+                        sfx.CreateMusic(15, 1);
                         break;
                     }
                     sfx.Create(22, 1);

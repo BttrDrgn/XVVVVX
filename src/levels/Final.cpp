@@ -2,6 +2,7 @@
 
 #include "../MakeAndPlay.h"
 #include "../Utility.h"
+#include "../filesystem.h"
 
 namespace levels
 {
@@ -15,6 +16,8 @@ namespace levels
 		warpY = false;
 		roomColor = 0;
 		roomName = "Untitled room ["+vvvvvv::Utility::toString(rX) + "," + vvvvvv::Utility::toString(rY)+"]";
+		fs::slog("Final ["+vvvvvv::Utility::toString(rX) + "," + vvvvvv::Utility::toString(rY)+"]\n");
+
 
 		switch (t)
 		{
