@@ -9,7 +9,6 @@ Xbox Original port of VVVVVV
 - Load the base game maps in a way that the Visual Studio 2003 compiler wants
   - (Visual Studio 2003 compiler is limited to 63 conditional statements at a time)
 
-
 ## Port Info
 - Based on the Homebrew Switch Port which is a fork of the original  
 - Links: [Original Source](https://github.com/TerryCavanagh/VVVVVV) -🍴> [Homebrew Switch Port](https://github.com/NicholeMattera/NX-VVVVVV)  
@@ -20,7 +19,7 @@ Xbox Original port of VVVVVV
 
 # Playing the Game
 ## Startup
-- Download the binaries from the [releases](https://github.com/BttrDrgn/XVVVVX/releases) section on the github.
+- Download the latest binaries from the [releases](https://github.com/BttrDrgn/XVVVVX/releases/latest) section on the github.
 - Your first launch WILL crash, go back to the game files and read the README.txt
 - After reading the README, you will notice you have to extract your game files into your games directory
   - Free game files can be downloaded here https://thelettervsixtim.es/makeandplay/data.zip
