@@ -29,7 +29,7 @@ Xbox Original port of VVVVVV
   - User levels can be downloaded here https://distractionware.com/forum/index.php?board=7.0 or elsewhere
 
 ## Getting Music
-- For music, you will need to find proper a WAV format soundtrack or dump the original OGG one and convert it
+- For music, you will need to a find proper WAV format soundtrack or dump the original OGG one and convert it
   - Only WAV will play for now as the native Xbox library does not support OGG
 
 
