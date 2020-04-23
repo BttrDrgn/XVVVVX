@@ -18,6 +18,22 @@ Xbox Original port of VVVVVV
 - [Original Readme](https://github.com/TerryCavanagh/VVVVVV/blob/master/README.md)
 - [Licensing Info](https://github.com/TerryCavanagh/VVVVVV/blob/master/LICENSE.md)
 
+# Playing the Game
+## Startup
+- Download the binaries from the [releases](https://github.com/BttrDrgn/XVVVVX/releases) section on the github.
+- Your first launch WILL crash, go back to the game files and read the README.txt
+- After reading the README, you will notice you have to extract your game files into your games directory
+  - Free game files can be downloaded here https://thelettervsixtim.es/makeandplay/data.zip
+  
+## Getting Levels
+- For levels, you will need to extract the levels folder into "D:\\user\\levels" or download them online
+  - User levels can be downloaded here https://distractionware.com/forum/index.php?board=7.0 or elsewhere
+
+## Getting Music
+- For music, you will need to find proper a WAV format soundtrack or dump the original OGG one and convert it
+  - Only WAV will play for now as the native Xbox library does not support OGG
+
+
 # Building and Setup Info
 ## Notes
 - Visual Studio .NET 2003 is required!
