@@ -58,7 +58,10 @@
 				StackSize="65536"
 				IncludeDebugInfo="TRUE"
 				SuppressStartupBanner="FALSE"
-				NoLibWarn="TRUE"/>
+				NoLibWarn="TRUE"
+				TitleID="0x58565658"
+				TitleName="XVVVVX"
+				TitleImage="&quot;C:\Game Data\VVVVVV.png&quot;"/>
 		</Configuration>
 		<Configuration
 			Name="Profile|Xbox"
@@ -315,6 +318,9 @@
 				RelativePath=".\src\Music.cpp">
 			</File>
 			<File
+				RelativePath=".\src\states\Preloader.cpp">
+			</File>
+			<File
 				RelativePath=".\src\Screen.cpp">
 			</File>
 			<File
@@ -341,9 +347,6 @@
 			<Filter
 				Name="states"
 				Filter="">
-				<File
-					RelativePath=".\src\states\Preloader.cpp">
-				</File>
 			</Filter>
 			<Filter
 				Name="levels"
