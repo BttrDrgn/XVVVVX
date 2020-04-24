@@ -271,7 +271,7 @@ void titleinput(KeyPoll& key, Graphics& dwgfx, MapClass& map, Game& game, Entity
                         sfx.Create(2, 1);
 						dwgfx.fademode = 2;
 						Sleep(1000); //Lets sound play
-						XLaunchNewImage("D:\\default.xbe", NULL);
+						XLaunchNewImage( NULL, XLD_LAUNCH_DASHBOARD_MAIN_MENU);
                     }
                 }
 #elif !defined(MAKEANDPLAY)
@@ -335,7 +335,7 @@ void titleinput(KeyPoll& key, Graphics& dwgfx, MapClass& map, Game& game, Entity
                         sfx.Create(2, 1);
 						dwgfx.fademode = 2;
 						Sleep(1000); //Lets sound play
-						XLaunchNewImage("D:\\default.xbe", NULL);
+						XLaunchNewImage( NULL, XLD_LAUNCH_DASHBOARD_MAIN_MENU);
                     }
                 }
 #endif

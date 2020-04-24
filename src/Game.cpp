@@ -6591,7 +6591,7 @@ void Game::createmenu( std::string t )
 					menuoptionsactive[1] = true;
 					menuoptions[2] = "game options";
 					menuoptionsactive[2] = true;
-					menuoptions[3] = "relaunch game";
+					menuoptions[3] = "exit to dashboard";
 					menuoptionsactive[3] = true;
 					nummenuoptions = 4;
 					menuxoff = -16;
@@ -6607,7 +6607,7 @@ void Game::createmenu( std::string t )
 					menuoptionsactive[3] = true;
 					menuoptions[4] = "view credits";
 					menuoptionsactive[4] = true;
-					menuoptions[5] = "relaunch game";
+					menuoptions[5] = "exit to dashboard";
 					menuoptionsactive[5] = true;
 					nummenuoptions = 6;
 					menuxoff = -16;
