@@ -31,10 +31,9 @@ int FILESYSTEM_init()
 	if(!fs::exists("D:\\data\\music")) fs::makedir("D:\\data\\music");
 
 	//Check if data exists; would be better to check for all but ehh
-	if(!fs::exists("D:\\data\\VVVVVV.png"))
+	if(!fs::exists("D:\\data\\graphics\\font.png"))
 	{
 		fs::makefile("D:\\README.txt", "Please extract your data.zip into the data folder.\nYou may delete this file afterwards if you want to.");
-		SDL_assert(0 && "Missing base game files!");
 		return 0;
 	}
 	else
