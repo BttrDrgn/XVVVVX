@@ -8,6 +8,7 @@ Xbox Original port of VVVVVV
 - Maybe get the editor working. Right now its just Play Edition.
 - Load the base game maps in a way that the Visual Studio 2003 compiler wants
   - (Visual Studio 2003 compiler is limited to 63 conditional statements at a time)
+- The script loader causes issues. Also needs same treatment as loading base game maps.
 
 ## Port Info
 - Based on the Homebrew Switch Port which is a fork of the original  
