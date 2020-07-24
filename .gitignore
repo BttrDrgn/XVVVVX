@@ -1,0 +1,2 @@
+# Assume that all the dependencies in the deps folder are initialized as a submodule
+deps/*
