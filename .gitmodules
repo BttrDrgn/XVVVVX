@@ -1,4 +1,4 @@
-[submodule "deps/libSDL2x"]
+[submodule "libSDL2x"]
     name = libSDL2x
 	path = deps/libSDL2x
 	url = https://github.com/marty28/libSDL2x

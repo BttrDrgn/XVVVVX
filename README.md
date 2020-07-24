@@ -19,8 +19,8 @@ To make it easier for others to download and use this repo, you may add submodul
 - Using submodules allows one to more easily patch the submodule whilest preserving the original:
   - To get a .patch file after editing the sources of your submodule, commit the changes you made using `git commit -a -m "message"`
     - Then use `git format-patch -s -n -1 HEAD --stdout >> ..\..\..\patches\[REPO_NAME].patch` to append your changes to the patch file. Make sure that you actually use >>, otherwhise the file gets overwritten!
-  - To apply a single patch, go to the root directory of the submodule and run `git apply ..\..\..\patches[REPO_NAME].patch`
-  - To apply all patches, execute
+  - To apply a single patch, go to the root directory of the submodule and run `git apply ..\..\..\patches\[REPO_NAME].patch`
+  - To apply all patches, execute `git submodule foreach 'echo Applying patch $toplevel/patches/$name.patch && dos2unix $toplevel/patches/$name.patch && git apply $toplevel/patches/$name.patch'`
   
 
 ## Todo
