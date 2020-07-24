@@ -20,7 +20,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="0"
 				OptimizeForProcessor="2"
-				AdditionalIncludeDirectories="&quot;C:\Documents and Settings\Drgn\Desktop\Deps\libSDL2x\include&quot;;&quot;C:\Documents and Settings\Drgn\My Documents\Visual Studio Projects\XVVVVX\physfs&quot;;&quot;C:\Documents and Settings\Drgn\My Documents\Visual Studio Projects\XVVVVX\lodepng&quot;;&quot;C:\Documents and Settings\Drgn\My Documents\Visual Studio Projects\XVVVVX\tinyxml&quot;"
+				AdditionalIncludeDirectories="&quot;C:\Documents and Settings\Drgn\Desktop\Deps\libSDL2x\include&quot;;&quot;$(ProjectDir)\physfs&quot;;&quot;$(ProjectDir)\lodepng&quot;;&quot;$(ProjectDir)\tinyxml&quot;"
 				PreprocessorDefinitions="_DEBUG;_XBOX"
 				MinimalRebuild="TRUE"
 				BasicRuntimeChecks="3"
