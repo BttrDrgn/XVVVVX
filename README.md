@@ -1,6 +1,28 @@
 # XVVVVX
 Xbox Original port of VVVVVV  
 
+## Cloning this repo
+- This repo contains git submodules, meaning that it needs to clone certain other git repo's. 
+  - To clone this repo succesfully, please use the **--recursive** flag: `git clone --recursive https://github.com/BttrDrgn/XVVVVX`
+  
+## Adding submodules to this repo
+To make it easier for others to download and use this repo, you may add submodules like such:
+- `git submodule add -b [branch] [repo_url] deps/[repo_name]`
+  - The submodule add command for libSDL2x was `git submodule add -b master --name libSDL2x https://github.com/marty28/libSDL2x deps/libSDL2x`.
+  The root of the git repo will be cloned into the path that you provided!
+- When you already cloned this repo, and want download the submodules. You can use
+  - `git submodule update --init --recursive` to so do. (or `git submodule update --init --recursive -j 8` if you've got super fast internet)
+- When you want to pull the changes for the root repo and for all the submodules, use:
+  - `git pull --recurse-submodules`
+- When you only want to pull the changes of the submodules:
+  - `git submodule update --remote`
+- Using submodules allows one to more easily patch the submodule whilest preserving the original:
+  - To get a .patch file after editing the sources of your submodule, commit the changes you made using `git commit -a -m "message"`
+    - Then use `git format-patch -s -n -1 HEAD --stdout >> ..\..\..\patches\[REPO_NAME].patch` to append your changes to the patch file. Make sure that you actually use >>, otherwhise the file gets overwritten!
+  - To apply a single patch, go to the root directory of the submodule and run `git apply ..\..\..\patches\[REPO_NAME].patch`
+  - To apply all patches, execute `git submodule foreach 'echo Applying patch $toplevel/patches/$name.patch && dos2unix $toplevel/patches/$name.patch && git apply $toplevel/patches/$name.patch'`
+  
+
 ## Todo
 - Optimize the rendering. Maybe convert SDL2 over to DirectX so it will be hardware accelerated.  
 - Completely redo Music and BinaryBlob to not require dependencies and use native Xbox libraries.
