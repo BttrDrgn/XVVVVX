@@ -34,7 +34,7 @@
 				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="Physfs.lib Tinyxml.lib libSDL2x.lib xapilibd.lib d3d8d.lib d3dx8d.lib xgraphicsd.lib dsoundd.lib dmusicd.lib xactengd.lib xsndtrkd.lib xvoiced.lib xonlined.lib xboxkrnl.lib xbdm.lib"
+				AdditionalDependencies="$(ProjectDir)\Tinyxml\$(OutDir)\Tinyxml.lib $(ProjectDir)\Physfs\$(OutDir)\Physfs.lib $(ProjectDir)\deps\libSDL2x\$(OutDir)\libSDL2x.lib xapilibd.lib d3d8d.lib d3dx8d.lib xgraphicsd.lib dsoundd.lib dmusicd.lib xactengd.lib xsndtrkd.lib xvoiced.lib xonlined.lib xboxkrnl.lib xbdm.lib"
 				OutputFile="$(OutDir)/$(ProjectName).exe"
 				LinkIncremental="2"
 				GenerateDebugInformation="TRUE"
@@ -61,7 +61,7 @@
 				NoLibWarn="TRUE"
 				TitleID="0x58565658"
 				TitleName="XVVVVX"
-				TitleImage="&quot;C:\Game Data\VVVVVV.png&quot;"/>
+				TitleImage="&quot;$(ProjectDir)\VVVVVV.png&quot;"/>
 		</Configuration>
 		<Configuration
 			Name="Profile|Xbox"
